@@ -70,7 +70,6 @@ export default function Statistics() {
   const remaining     = currentWeight && targetWeight ? Math.max(0, currentWeight - targetWeight).toFixed(1) : null;
 
   const walkDone  = tasks.find(t => t.id === 'walk')?.done;
-  const waterDone = tasks.find(t => t.id === 'water')?.done;
 
   // Motivational message based on progress
   const motivationMsg = useMemo(() => {
@@ -297,7 +296,7 @@ export default function Statistics() {
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '0.75rem' }}>
             {TROPHY_DATA.map(t => {
-              const earned = trophies.includes(t.days);
+              const earned = trophies.includes(t.days) || trophies.includes(`fast_${t.days}`);
               return (
                 <div
                   key={t.days}

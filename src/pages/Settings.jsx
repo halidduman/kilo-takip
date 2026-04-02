@@ -95,6 +95,11 @@ export default function Settings() {
                     VKİ: <strong>{bmi}</strong> · Hedef: <strong>{profile.targetWeight} kg</strong>
                   </div>
                 )}
+                {profile.fastingProtocol && (
+                  <div style={{ marginTop: '0.5rem', fontSize: '0.78rem', opacity: 0.8 }}>
+                    🌙 {profile.fastingProtocol} · {profile.eatStart}–{profile.eatEnd} · -{profile.weeklyWeightGoal ?? 0.5} kg/hafta
+                  </div>
+                )}
               </div>
               <button
                 onClick={() => setShowWeighIn(true)}
